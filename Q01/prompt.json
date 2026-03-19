@@ -1,0 +1,7 @@
+{
+  "prompt": "A single, powerful conceptual image representing climate change over time as a physical metaphor.\n\nScene: A long perspective view of thousands of matchsticks arranged in neat rows, stretching from the foreground into the distance like a timeline.\n\nAt the far end (past): the matchsticks are intact, clean, and unlit, pale wood tones.\n\nMoving toward the viewer: the matchsticks gradually become charred, then partially burned.\n\nIn the foreground (present): the matchsticks are actively burning with bright orange flames, collapsing, blackened, and turning to ash. Some have already disintegrated.\n\nThe transition from intact to burning should feel gradual but accelerating — very few burning sticks in the distance, many in the foreground.\n\nLighting: cinematic, dark background, strong contrast, glowing fire illuminating nearby sticks.\n\nMood: somber, urgent, quiet but devastating.\n\nComposition: single frame, no text, no labels, no numbers, no charts. The meaning must be understood visually.\n\nStyle: hyper-realistic, high detail, magazine cover quality, shallow depth of field, sharp focus on foreground flames.\n\nNegative prompt: no globe, no thermometer, no graphs, no charts, no text, no infographic style, no labels, no split panels",
+  "model": "DALL·E 3",
+  "dataset_name": "NASA GISTEMP Global Surface Temperature Anomalies",
+  "dataset_url": "https://data.giss.nasa.gov/gistemp/",
+  "insight": "Recent decades show a sharp and accelerating increase in global temperatures compared to the past."
+}
