@@ -1,0 +1,6 @@
+{
+  "prompt": "A highly realistic, cinematic photograph of a small tailor workshop.\n\nAt the center, a mannequin is wrapped in an extremely wrinkled, irregular, crumpled fabric form — unnatural folds and bumps everywhere.\n\nA tailor is intensely stitching a suit directly onto this mannequin, carefully tracing every tiny wrinkle and imperfection with obsessive precision.\n\nThe suit itself is grotesquely over-detailed: excessive seams, unnecessary stitching lines, exaggerated contours that follow every tiny bump in the mannequin.\n\nNearby, on a hanger, a simple, clean, well-shaped suit contrasts sharply with the distorted one being made.\n\nLighting: warm, focused workshop lighting with deep shadows, highlighting the texture of the fabric and stitches.\n\nMood: obsessive, meticulous, slightly unsettling.\n\nComposition: single frame, no text, no labels, no symbols, no diagrams.\n\nStyle: ultra-realistic, high detail, shallow depth of field, 50mm lens look, magazine photography.\n\nNegative prompt: no charts, no graphs, no equations, no text, no glowing AI elements, no futuristic style, no abstract shapes",
+  "model": "DALL·E 3",
+  "concept": "overfitting",
+  "metaphor": "A tailor obsessively fits a suit to every wrinkle of a distorted mannequin, making it unusable for normal shapes—mirroring memorization without generalization."
+}
