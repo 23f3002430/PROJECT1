@@ -1,9 +1,7 @@
-
 import json
 import boto3
 from typing import List
 from langchain_core.embeddings import Embeddings
-from botocore.exceptions import ClientError
 
 
 class BedrockEmbeddings(Embeddings):
@@ -13,6 +11,7 @@ class BedrockEmbeddings(Embeddings):
         model_id: str = "amazon.titan-embed-text-v2:0",
         region_name: str = "ap-south-1"
     ):
+
         self.model_id = model_id
 
         self.client = boto3.client(
@@ -24,7 +23,6 @@ class BedrockEmbeddings(Embeddings):
 
         embeddings = []
 
-        # Titan accepts one input text per invocation
         for text in texts:
 
             body = json.dumps({
@@ -40,68 +38,41 @@ class BedrockEmbeddings(Embeddings):
                 contentType="application/json"
             )
 
-            response_body = json.loads(
-                response["body"].read()
-            )
+            result = json.loads(response["body"].read())
 
-            embeddings.append(
-                response_body["embedding"]
-            )
+            embeddings.append(result["embedding"])
 
         return embeddings
 
-    def embed_documents(
-        self, texts: List[str]
-    ) -> List[List[float]]:
-
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
         return self._embed(texts)
 
     def embed_query(self, text: str) -> List[float]:
-
         return self._embed([text])[0]
 
 
-# Initialize embedding model
+# Initialize
 embeddings_model = BedrockEmbeddings(
     model_id="amazon.titan-embed-text-v2:0",
     region_name="ap-south-1"
 )
 
 
-
-from sklearn.metrics.pairwise import cosine_similarity
-
-# Test sentences
+# Test
 texts = [
-    "AWS EC2 is a cloud computing service.",
-    "Amazon EC2 provides virtual servers in the cloud.",
-    "I like eating pizza."
+    "AWS EC2 provides virtual servers.",
+    "Amazon S3 stores objects in the cloud.",
+    "Machine learning uses data to train models."
 ]
 
-# Generate embeddings
 vectors = embeddings_model.embed_documents(texts)
 
-# Check dimensions
-print("Number of sentences:", len(vectors))
+print("Number of embeddings:", len(vectors))
 print("Embedding dimensions:", len(vectors[0]))
+print("First 5 values:", vectors[0][:5])
 
-# Print first 5 values
-print("\nFirst 5 embedding values:")
-print(vectors[0][:5])
+query_vector = embeddings_model.embed_query("What is EC2?")
 
-# Test query embedding
-query = "What is Amazon EC2?"
-query_vector = embeddings_model.embed_query(query)
+print("Query dimensions:", len(query_vector))
 
-print("\nQuery embedding dimensions:", len(query_vector))
-
-# Calculate semantic similarity
-similarities = cosine_similarity(
-    [query_vector],
-    vectors
-)[0]
-
-print("\nSimilarity scores:")
-
-for text, score in zip(texts, similarities):
-    print(f"{score:.4f} -> {text}")
+print("\nSUCCESS: Bedrock embeddings generated!")
